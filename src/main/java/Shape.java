@@ -1,15 +1,42 @@
-package main.java;
+import java.awt.Color;
+import java.awt.Point;
 
-abstract class Shape {
-    protected Point location;
-    protected Color color;
-    protected int border;
+public abstract class Shape {
+    // Create the variables.
+    private World world;
+    Color color;
+    double border;
 
-    public Shape(Point location, Color color, int border) {
-        this.location = location;
+    // Create the constructor.
+    public Shape(World world) {
+        this.world = world;
+    }
+
+    // Create getters and setters.
+    public World getWorld() {
+        return world;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
         this.color = color;
+    }
+
+    public double getBorder() {
+        return border;
+    }
+
+    public void setBorder(double border) {
         this.border = border;
     }
 
-    public abstract void paint(Graphics2D g);
+    // Create abstract methods.
+    public abstract void setLocation(Point location);
+
+    public abstract void paint();
+
+    public abstract Point getLocation();
 }
