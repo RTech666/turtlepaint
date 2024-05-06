@@ -1,3 +1,8 @@
+/* 
+Circle.java
+This Java file is the file that contains all the methods for the circle.
+*/
+
 import java.awt.Color;
 import java.awt.Point;
 

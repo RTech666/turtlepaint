@@ -1,3 +1,8 @@
+/* 
+Shape.java
+This Java file is the file that is the base for all the shapes.
+*/
+
 import java.awt.Color;
 import java.awt.Point;
 

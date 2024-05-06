@@ -1,9 +1,24 @@
+/* 
+MainApp.java
+This Java file is the main file that contains all the menus and options.
+
+displayHomeScreen() - The home screen for the program.
+addShape() - The menu for adding a shape to the program.
+addSquare() - If user chose to add a square, it asks them the square options and then prints it to the program.
+createCircle() - Same as the last method, but asks them options for a circle.
+createTriangle() - Same as the last method, but asks them options for a triangle.
+saveImage() - Method to save an image of the program.
+*/
+
 import java.awt.Color;
 import java.awt.Point;
 import java.util.Scanner;
 
 public class MainApp {
+    // Initalize the scanner.
     private static Scanner scanner = new Scanner(System.in);
+    
+    // Create the variable.
     private static World world;
 
     public static void main(String[] args) {
@@ -155,39 +170,35 @@ public class MainApp {
 
         // Create the circle and draw it.
         Circle circle = new Circle(world, radius, border, new Color(r, g, b), new Point(x, y));
-        circle.border = border;
-        circle.color = new Color(r, g, b);
-        circle.location = new Point(x, y);
+        circle.paint();
         return circle;
     }
 
     // Create createTriangle method.
     private static Triangle createTriangle() {
-        // Ask user for the first vertex.
+        // Ask user for the coordinates of each vertex.
         System.out.println("Enter the coordinates of the first vertex (x,y):");
         System.out.print("X: ");
         int x1 = scanner.nextInt();
         System.out.print("Y: ");
         int y1 = scanner.nextInt();
 
-        // Ask use for the second vertex.
         System.out.println("Enter the coordinates of the second vertex (x,y):");
         System.out.print("X: ");
         int x2 = scanner.nextInt();
         System.out.print("Y: ");
         int y2 = scanner.nextInt();
 
-        // Ask user for the third vertex.
         System.out.println("Enter the coordinates of the third vertex (x,y):");
         System.out.print("X: ");
         int x3 = scanner.nextInt();
         System.out.print("Y: ");
         int y3 = scanner.nextInt();
-
+    
         // Ask user for the border width.
         System.out.print("Enter the border width: ");
         int border = scanner.nextInt();
-
+    
         // Ask user for the border color.
         System.out.println("Enter the border color (R,G,B):");
         System.out.print("R Number: ");
@@ -196,7 +207,7 @@ public class MainApp {
         int g = scanner.nextInt();
         System.out.print("B Number: ");
         int b = scanner.nextInt();
-
+    
         // Ask user for the location.
         System.out.println("Enter the location of the triangle (x,y):");
         System.out.print("X: ");
@@ -204,7 +215,9 @@ public class MainApp {
         System.out.print("Y: ");
         int y = scanner.nextInt();
     
-        Triangle triangle = new Triangle(world, x1, y1, x2, y2, x3, y3, border, r, g, b, x, y);
+        // Create the triangle.
+        Point[] vertices = { new Point(x1, y1), new Point(x2, y2), new Point(x3, y3) };
+        Triangle triangle = new Triangle(world, vertices, border, new Color(r, g, b), new Point(x, y));
         return triangle;
     }
 

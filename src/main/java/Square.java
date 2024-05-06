@@ -1,3 +1,8 @@
+/* 
+Square.java
+This Java file is the file that contains all the methods for the square.
+*/
+
 import java.awt.Point;
 
 public class Square extends Shape {
